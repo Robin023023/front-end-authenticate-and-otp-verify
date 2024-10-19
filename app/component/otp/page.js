@@ -13,7 +13,7 @@ export default function Otp() {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      await axios.post('http://localhost:4000/api/verify-otp', { otp });
+      await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/verify-otp`, { otp });
       router.push('/component/newpassword'); // Redirect to new password page
     } catch (error) {
       console.error("OTP verification failed", error);

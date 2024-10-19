@@ -30,7 +30,7 @@ export default function NewPassword() {
       return;
     }
     try {
-      await axios.post('http://localhost:4000/api/reset-password', { email, newPassword: password });
+      await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/reset-password`, { email, newPassword: password });
       localStorage.removeItem('resetEmail')
       router.push('/component/login'); // Redirect to login page
     } catch (error) {

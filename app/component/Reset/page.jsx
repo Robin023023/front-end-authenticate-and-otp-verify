@@ -13,7 +13,7 @@ export default function Reset() {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      await axios.post('http://localhost:4000/api/send-otp', { email });
+      await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/send-otp`, { email });
       localStorage.setItem('resetEmail', email);
       router.push('/component/otp'); // Redirect to OTP page
     } catch (error) {
