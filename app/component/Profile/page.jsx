@@ -9,7 +9,7 @@ export default function Page() {
   const router=useRouter()
   useEffect(()=>{
     const token=localStorage.getItem("token");
-    axios.get("http://localhost:4000/api/profile",{
+    axios.get(`${process.env.NEXT_PUBLIC_API_URL}/profile`,{
       headers:{
         Authorization:token
       }
